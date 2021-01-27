@@ -9,12 +9,22 @@ class Cli
         puts "                  "
         puts "Here for a little Geography lesson?: yes/no"
         user_input = gets.strip.downcase
-        follow_up_message if user_initial_input(input)
+        follow_up_message if user_initial_input(user_input)
         more_info_input = gets.strip
         
         unless more_info_input == "exit"
             if more_info_input.to_i.between?(1, Country.all.length)
                 choice = Country.all[more_info_input.to_i - 1]
+                country_info(choice)
+            elsif more_info_input == "back"
+                Country.all.each.with_index(1) do |country, index|
+                    puts "#{index}.#{country.name} - #{country.capital}"
+                end
+            elsif more_info_input == "exit"
+                abort "Thanks! See ya hopefully next time!"
+            end
+        end
+
 
 
 
@@ -30,13 +40,13 @@ class Cli
             Country.all.each.with_index(1) do |country, index|
                 puts "#{index}.#{country.name} - #{country.capital}"
             end
-        elseif
+        elsif
             input == "no" || input == "n"
             #code to exit app
             abort "Thanks! See ya hopefully next time!"
         else
             puts "This is not a valid option"
-            user_initial_input(input)
+            # user_initial_input(input)
         end
     end
 
@@ -44,7 +54,7 @@ class Cli
         puts " Type a number to learn more about that country, or 'exit' to leave the app."
         puts "You can also enter 'back' to return to the list of countries."
     end
-    
+
     def country_info(country)
         puts "name: #{country.name}"
         puts "----------------------"
@@ -52,7 +62,7 @@ class Cli
         puts "----------------------"
         puts "region: #{country.region}"
         puts "----------------------"
-        puts "population: #{country.region}"
+        puts "population: #{country.population}"
         puts "----------------------"
         puts "gini: #{country.gini}"
         puts "----------------------"

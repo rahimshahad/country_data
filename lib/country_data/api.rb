@@ -12,6 +12,7 @@ class Api
          country.population = result["population"]
          country.gini = result["gini"]
          country.region = result["region"]
+         country.area = result["area"]
             end
             # binding.pry
     end
@@ -19,25 +20,25 @@ end
 
 
 
-class Country
-    @@all = []
-    attr_accessor :name, :capital, :population, :gini, :region, :area
-    def initialize(name:, capital:)
-        @name = name
-        @capital = capital
-        @population = population
-        @area = area
-        @gini = gini
-        @region = region
-        save
-    end
-    def self.all
-        @@all
-    end
-    def save
-        @@all << self
-    end
-end
-Api.get_country
-puts Country.all[0].gini
+# class Country
+#     @@all = []
+#     attr_accessor :name, :capital, :population, :gini, :region, :area
+#     def initialize(name:, capital:)
+#         @name = name
+#         @capital = capital
+#         @population = population
+#         @area = area
+#         @gini = gini
+#         @region = region
+#         save
+#     end
+#     def self.all
+#         @@all
+#     end
+#     def save
+#         @@all << self
+#     end
+# end
+# Api.get_country
+# puts Country.all[0].gini
 

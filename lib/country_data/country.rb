@@ -1,7 +1,6 @@
 class Country
     @@all = []
-    attr_accessor :name, :capital, :population, :gini
-    attr_reader :region, :area
+    attr_accessor :name, :capital, :population, :gini, :region, :area
     def initialize(name:, capital:)
         @name = name
         @capital = capital
@@ -15,6 +14,6 @@ class Country
         @@all
     end
     def save
-        @@all < self
+        @@all << self
     end
 end

@@ -1,2 +1,4 @@
 #!/usr/bin/env ruby
- require_relative '/..lib/environment.rb'
+ require_relative '../lib/country_data.rb'
+
+ Cli.new.run
