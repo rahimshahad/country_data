@@ -1,5 +1,5 @@
 require 'httparty'
-require 'pry'
+# require 'pry'
 class Api
     # response = HTTParty.get("https://restcountries.eu/rest/v2/")
     def self.get_country
@@ -9,7 +9,6 @@ class Api
          country = Country.new(name: result["name"], capital: result["capital"])
          country.name =  result["name"]
          country.capital = result["capital"]
-         
          country.population = result["population"]
          country.gini = result["gini"]
          country.region = result["region"]
@@ -22,8 +21,7 @@ end
 
 class Country
     @@all = []
-    attr_accessor :name, :capital, :population, :gini
-    attr_reader :region, :area
+    attr_accessor :name, :capital, :population, :gini, :region, :area
     def initialize(name:, capital:)
         @name = name
         @capital = capital
@@ -40,4 +38,6 @@ class Country
         @@all << self
     end
 end
-#  Api.get_country
+Api.get_country
+puts Country.all[0].gini
+
