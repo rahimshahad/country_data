@@ -1,3 +1,4 @@
+require 'pry'
 class Country
     @@all = []
     attr_accessor :name, :capital, :population, :gini, :region, :area
@@ -9,7 +10,7 @@ class Country
         @gini = gini
         @region = region
         save
-    end
+        end
     def self.all
         @@all
     end
