@@ -1,7 +1,6 @@
-require 'pry'
 class Country
     @@all = []
-    attr_accessor :name, :capital, :population, :gini, :region, :area
+    attr_accessor :name, :capital, :population, :gini, :region, :area, :latitude, :longitude, :domain, :calling_code, :timezone, :demonym
     def initialize(name:, capital:)
         @name = name
         @capital = capital

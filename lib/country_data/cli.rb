@@ -19,6 +19,8 @@ class Cli
                 Country.all.each.with_index(1) do |country, index|
                     puts "#{index}.#{country.name} - #{country.capital}"
                 end
+            elsif more_info_input == "size"
+                Country.find_by_size
             else
                 puts "This is not a valid option."
             end
@@ -57,11 +59,23 @@ class Cli
         puts "gini: #{country.gini}"
         puts "----------------------"
         puts "area: #{country.area}"
+        puts "----------------------"
+        puts "latitude: #{country.latitude}"
+        puts "----------------------"
+        puts "longitude: #{country.longitude}"
+        puts "----------------------"
+        puts "demonym: #{country.demonym}"
+        puts "----------------------"
+        puts "call_code: #{country.calling_code}"
+        puts "----------------------"
+        puts "timezone: #{country.timezone}"
+        puts "----------------------"
+        puts "domain: #{country.domain}"
     end
 
     def follow_up_message
         puts "Type a number to learn more about that country, or 'exit' to leave the app."
-        puts "You can enter 'back' to return to the list of countries."
+        puts "You can also enter 'back' to return to the list of countries."
     end
 
 end
