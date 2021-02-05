@@ -19,8 +19,6 @@ class Cli
                 Country.all.each.with_index(1) do |country, index|
                     puts "#{index}.#{country.name} - #{country.capital}"
                 end
-            elsif more_info_input == "size"
-                Country.find_by_size
             else
                 puts "This is not a valid option."
             end
